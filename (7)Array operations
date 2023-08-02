@@ -1,0 +1,91 @@
+#include<stdio.h>
+int main()
+{
+	int c,pos,r,n,i,a[10],s,k=0;
+	printf("enter the number elements in the list:  ");
+	scanf("%d",&n);
+	printf("the elements:\n ");
+	for(i=0;i<n;i++)
+	{
+		scanf("%d",&a[i]);
+	}
+	printf("enter the choice: ");
+	scanf("%d",&c);
+	switch(c)
+	{
+	case 1:
+		{
+			printf("enter the position to insert: ");
+	        scanf("%d",&pos);
+	        if(pos >=0 && pos<=n)
+	        {
+			    printf("enter the new element to insert: ");
+	            scanf("%d",&r);
+	            for(i=n;i>=pos;i--)
+	            {
+		            a[i]=a[i-1];
+	            }
+	            a[pos]=r;
+	            n++;
+	            printf("after inserting: ");
+	           for(i=0;i<n;i++)
+	           {
+		           printf("%d\t",a[i]);
+	           }
+	        printf("\n");
+	    }
+	        else
+	        {
+	    	    printf("invalid pos");
+		    }
+	        break;
+	    }
+	case 2:
+		{
+			printf("enter the position to delete: ");
+	        scanf("%d",&pos);
+	        if(pos >=0 && pos<=n)
+	        {
+	            for(i=pos;i<n-1;i++)
+	            {
+		            a[i]=a[i+1];
+	            }
+	            n--;
+	            printf("after deleting: ");
+	           for(i=0;i<n;i++)
+	           {
+		           printf("%d\t",a[i]);
+	           }
+	        printf("\n");
+	        }
+	        else
+	        {
+	    	    printf("invalid pos");
+		    }
+	        break;
+		        
+		}
+	case 3:
+		{
+			printf("enter the element to display: ");
+			scanf("%d",&s);
+			for(i=0;i<n;i++)
+			{
+				if(a[i]==s)
+				{
+					k=1;
+					break;
+				}
+			}
+			if(k)
+			{
+				printf("element %d is found at location %d ",s,i);
+			}
+			else
+			{
+				printf("element not found");
+			}
+			break;
+		}	
+}
+}
